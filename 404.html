@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>404 | Page Not Found</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ================= BASE ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Poppins",sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:#05070d;
+  overflow:hidden;
+  color:#ffffff;
+}
+
+/* ================= BACKGROUND ================= */
+.bg-404{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    120deg,
+    #0b0f1a,
+    #091a3a,
+    #0b0f1a
+  );
+  background-size:300% 300%;
+  animation:bgMove 12s ease infinite;
+  z-index:-1;
+}
+
+/* FLOATING SHAPES */
+.shape{
+  position:absolute;
+  border-radius:50%;
+  opacity:.7;
+  animation:float 6s ease-in-out infinite;
+}
+
+.shape.one{
+  width:120px;height:120px;
+  background:#3ec6ff;
+  top:10%;left:15%;
+}
+
+.shape.two{
+  width:80px;height:80px;
+  background:#6cf2c2;
+  bottom:20%;right:20%;
+  animation-delay:1.5s;
+}
+
+.shape.three{
+  width:50px;height:50px;
+  background:#a78bfa;
+  top:60%;left:60%;
+  animation-delay:3s;
+}
+
+/* ================= CONTENT ================= */
+.page-404{
+  position:relative;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+}
+
+.content{
+  animation:fadeUp 1.4s ease forwards;
+}
+
+/* GLITCH 404 */
+.glitch{
+  font-size:140px;
+  font-weight:800;
+  position:relative;
+  color:#ffffff;
+  letter-spacing:6px;
+  animation:glitch 2s infinite;
+}
+
+.glitch::before,
+.glitch::after{
+  content:"404";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  overflow:hidden;
+}
+
+.glitch::before{
+  color:#3ec6ff;
+  animation:glitchTop 2s infinite;
+}
+
+.glitch::after{
+  color:#6cf2c2;
+  animation:glitchBottom 1.8s infinite;
+}
+
+/* TEXT */
+.content h2{
+  font-size:32px;
+  margin:15px 0;
+}
+
+.content p{
+  color:#c7c7c7;
+  margin-bottom:35px;
+  max-width:420px;
+}
+
+/* BUTTON */
+.btn-404{
+  display:inline-block;
+  padding:14px 36px;
+  border-radius:50px;
+  background:linear-gradient(135deg,#6cf2c2,#3ec6ff);
+  color:#000;
+  font-weight:600;
+  text-decoration:none;
+  transition:.4s;
+  box-shadow:0 12px 30px rgba(108,242,194,.45);
+}
+
+.btn-404:hover{
+  transform:translateY(-6px) scale(1.05);
+  box-shadow:0 18px 40px rgba(108,242,194,.65);
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-25px)}
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes glitch{
+  0%{transform:translate(0)}
+  20%{transform:translate(-2px,2px)}
+  40%{transform:translate(-2px,-2px)}
+  60%{transform:translate(2px,2px)}
+  80%{transform:translate(2px,-2px)}
+  100%{transform:translate(0)}
+}
+
+@keyframes glitchTop{
+  0%{clip-path:inset(0 0 70% 0)}
+  50%{clip-path:inset(0 0 40% 0)}
+  100%{clip-path:inset(0 0 70% 0)}
+}
+
+@keyframes glitchBottom{
+  0%{clip-path:inset(70% 0 0 0)}
+  50%{clip-path:inset(40% 0 0 0)}
+  100%{clip-path:inset(70% 0 0 0)}
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .glitch{font-size:90px}
+  .content h2{font-size:24px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-404"></div>
+
+<div class="shape one"></div>
+<div class="shape two"></div>
+<div class="shape three"></div>
+
+<section class="page-404">
+  <div class="content">
+    <div class="glitch">404</div>
+    <h2>Page Not Found</h2>
+    <p>
+      Oops! The page you’re looking for doesn’t exist
+      or has been moved.
+    </p>
+    <a href="index.html" class="btn-404">Go Back Home</a>
+  </div>
+</section>
+
+</body>
+</html>
